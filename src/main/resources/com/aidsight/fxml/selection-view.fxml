@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.*?>
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.aidsight.presentation.controller.SelectionViewController"
+           prefWidth="1600" prefHeight="900" styleClass="selection-container">
+    <VBox alignment="CENTER" spacing="30">
+        <padding>
+            <Insets top="40" right="40" bottom="40" left="40"/>
+        </padding>
+        <!-- Title -->
+        <Label text="Select Analysis Subject" styleClass="selection-title">
+            <VBox.margin>
+                <Insets bottom="10"/>
+            </VBox.margin>
+        </Label>
+        <!-- Instructions -->
+        <Label styleClass="selection-instructions" wrapText="true" maxWidth="700" textAlignment="CENTER"
+               text="Choose a subject from the dropdown menu to analyze. Each subject contains specific tasks and data instances tailored for different analysis scenarios."/>
+        <!-- Dropdown Container -->
+        <VBox alignment="CENTER" spacing="15" maxWidth="600">
+            <!-- Subject Selection Label -->
+            <Label text="Choose Subject:" styleClass="selection-label"/>
+            <!-- Subject Dropdown -->
+            <ComboBox fx:id="subjectComboBox" 
+                      promptText="Select a subject..." 
+                      prefWidth="600"
+                      onAction="#onSubjectSelected"
+                      styleClass="subject-combo-box"/>
+            <!-- Description Area -->
+            <VBox spacing="10" VBox.vgrow="ALWAYS">
+                <Label text="Subject Details:" styleClass="selection-label"/>
+                <TextArea fx:id="descriptionArea"
+                          editable="false"
+                          wrapText="true"
+                          prefHeight="120"
+                          prefWidth="600"
+                          promptText="Select a subject to see details..."
+                          styleClass="description-area"/>
+            </VBox>
+            <!-- Task and Instance Info -->
+            <HBox spacing="30" alignment="CENTER">
+                <VBox alignment="CENTER" spacing="5">
+                    <Label fx:id="taskCountLabel" text="Tasks: -" styleClass="info-label"/>
+                </VBox>
+                <VBox alignment="CENTER" spacing="5">
+                    <Label fx:id="instanceCountLabel" text="Instances: -" styleClass="info-label"/>
+                </VBox>
+            </HBox>
+        </VBox>
+        <!-- Action Buttons -->
+        <VBox spacing="15" alignment="CENTER">
+            <VBox.margin>
+                <Insets top="20"/>
+            </VBox.margin>
+
+            <!-- Start Analysis Button (full width) -->
+            <Button fx:id="startAnalysisButton"
+                    text="Start Analysis"
+                    onAction="#onStartAnalysisClick"
+                    styleClass="start-button"
+                    prefWidth="420"
+                    prefHeight="50"
+                    disable="true"/>
+
+            <!-- Add and Delete Subject Buttons (side by side) -->
+            <HBox spacing="20" alignment="CENTER">
+                <Button fx:id="addSubjectButton"
+                        text="Add Subject"
+                        onAction="#onAddSubjectClick"
+                        styleClass="start-button"
+                        prefWidth="200"
+                        prefHeight="50"/>
+
+                <Button fx:id="deleteSubjectButton"
+                        text="Delete Subject"
+                        onAction="#onDeleteSubjectClick"
+                        styleClass="danger-button"
+                        prefWidth="200"
+                        prefHeight="50"
+                        disable="true"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</StackPane>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.aidsight.presentation.controller.AddSubjectViewController"
+            prefWidth="1600" prefHeight="900" styleClass="selection-container">
+
+    <!-- Top: Header -->
+    <top>
+        <VBox spacing="10" styleClass="header-section">
+            <padding>
+                <Insets top="30" right="40" bottom="20" left="40"/>
+            </padding>
+            <Label text="Add New Subject" styleClass="selection-title"/>
+            <Label text="Create a new analysis subject by scraping data from selected platforms"
+                   styleClass="selection-instructions" wrapText="true"/>
+        </VBox>
+    </top>
+
+    <!-- Center: Main Form -->
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="form-scroll-pane">
+            <VBox spacing="25" styleClass="form-container">
+                <padding>
+                    <Insets top="20" right="40" bottom="20" left="40"/>
+                </padding>
+
+                <!-- Subject Information Section -->
+                <VBox spacing="15" styleClass="form-section">
+                    <Label text="Subject Information" styleClass="section-header"/>
+
+                    <!-- Subject Name -->
+                    <VBox spacing="5">
+                        <Label text="Subject Name:" styleClass="form-label"/>
+                        <TextField fx:id="subjectNameField"
+                                   promptText="Enter subject name (e.g., 'Hurricane Analysis')"
+                                   styleClass="form-text-field"/>
+                    </VBox>
+
+                    <!-- Subject Description -->
+                    <VBox spacing="5">
+                        <Label text="Description:" styleClass="form-label"/>
+                        <TextArea fx:id="subjectDescriptionArea"
+                                  promptText="Enter a description of this subject..."
+                                  wrapText="true"
+                                  prefRowCount="4"
+                                  styleClass="form-text-area"/>
+                    </VBox>
+                </VBox>
+
+                <!-- Tasks Selection Section -->
+                <VBox spacing="15" styleClass="form-section">
+                    <Label text="Analysis Tasks" styleClass="section-header"/>
+                    <Label text="Select the tasks that will be performed on the collected data"
+                           styleClass="form-hint"
+                           wrapText="true"/>
+
+                    <!-- Task Selection -->
+                    <VBox spacing="10">
+                        <Label text="Select Tasks:" styleClass="form-label"/>
+                        <VBox fx:id="tasksCheckBoxContainer" spacing="5" styleClass="checkbox-container">
+                            <!-- Checkboxes will be dynamically created by the controller -->
+                        </VBox>
+                    </VBox>
+                </VBox>
+
+                <!-- Scraping Configuration Section -->
+                <VBox spacing="15" styleClass="form-section">
+                    <Label text="Scraping Configuration" styleClass="section-header"/>
+
+                    <!-- Platform Selection -->
+                    <VBox spacing="10">
+                        <Label text="Select Platforms:" styleClass="form-label"/>
+                        <VBox fx:id="scrapersCheckBoxContainer" spacing="5" styleClass="checkbox-container">
+                            <!-- Checkboxes will be dynamically created by the controller -->
+                        </VBox>
+                    </VBox>
+
+                    <!-- Keywords -->
+                    <VBox spacing="5">
+                        <Label text="Search Keywords:" styleClass="form-label"/>
+                        <TextField fx:id="keywordsField"
+                                   promptText="Enter keywords to search (e.g., 'climate change')"
+                                   styleClass="form-text-field"/>
+                    </VBox>
+
+                    <!-- Number of Posts Configuration -->
+                    <VBox spacing="10">
+                        <Label text="Number of Posts:" styleClass="form-label"/>
+
+                        <!-- Same count for all platforms option -->
+                        <CheckBox fx:id="useSameCountCheckBox"
+                                 text="Use same count for all platforms"
+                                 selected="true"
+                                 styleClass="platform-checkbox"/>
+
+                        <!-- Unified counter (visible when useSameCountCheckBox is checked) -->
+                        <HBox fx:id="unifiedCountContainer" spacing="10" alignment="CENTER_LEFT">
+                            <Spinner fx:id="numPostsSpinner"
+                                     editable="true"
+                                     prefWidth="150"
+                                     styleClass="form-spinner"/>
+                            <Label text="posts per platform" styleClass="form-hint"/>
+                        </HBox>
+
+                        <!-- Individual counters (visible when useSameCountCheckBox is unchecked) -->
+                        <VBox fx:id="individualCountsContainer" spacing="8" styleClass="checkbox-container" managed="false" visible="false">
+                            <!-- Individual spinners will be dynamically created by the controller -->
+                        </VBox>
+                    </VBox>
+
+                    <!-- Browser Settings -->
+                    <VBox spacing="10">
+                        <Label text="Browser Settings:" styleClass="form-label"/>
+                        <VBox spacing="5" styleClass="checkbox-container">
+                            <CheckBox fx:id="headlessModeCheckBox"
+                                     text="Headless Mode (run browser in background)"
+                                     selected="true"
+                                     styleClass="platform-checkbox"/>
+                            <Label text="Note: Disabling headless mode will show the browser window during scraping"
+                                   styleClass="form-hint"
+                                   wrapText="true"/>
+                        </VBox>
+                    </VBox>
+                </VBox>
+
+                <!-- Progress Section -->
+                <VBox spacing="15" styleClass="form-section">
+                    <Label text="Scraping Progress" styleClass="section-header"/>
+
+                    <!-- Progress Bar -->
+                    <ProgressBar fx:id="progressBar"
+                                 progress="0"
+                                 maxWidth="Infinity"
+                                 prefHeight="25"
+                                 styleClass="scraping-progress-bar"/>
+
+                    <!-- Progress Log -->
+                    <VBox spacing="5">
+                        <Label text="Progress Log:" styleClass="form-label"/>
+                        <TextArea fx:id="progressLogArea"
+                                  editable="false"
+                                  wrapText="true"
+                                  prefRowCount="8"
+                                  styleClass="progress-log-area"/>
+                    </VBox>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <!-- Bottom: Action Buttons -->
+    <bottom>
+        <HBox spacing="15" alignment="CENTER" styleClass="button-bar">
+            <padding>
+                <Insets top="20" right="40" bottom="30" left="40"/>
+            </padding>
+
+            <Button fx:id="scrapeButton"
+                    text="Start Scraping"
+                    onAction="#onScrapeClick"
+                    styleClass="start-button"
+                    prefWidth="180"
+                    prefHeight="45"/>
+
+            <Button fx:id="saveButton"
+                    text="Save Subject"
+                    onAction="#onSaveClick"
+                    styleClass="start-button"
+                    prefWidth="180"
+                    prefHeight="45"
+                    disable="true"/>
+
+            <Button fx:id="cancelButton"
+                    text="Cancel"
+                    onAction="#onCancelClick"
+                    styleClass="secondary-button"
+                    prefWidth="180"
+                    prefHeight="45"/>
+        </HBox>
+    </bottom>
+</BorderPane>
+

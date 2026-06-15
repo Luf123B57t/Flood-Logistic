@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.aidsight.presentation.controller.AnalysisViewController"
+            prefWidth="1600" prefHeight="900">
+    <!-- Top Bar -->
+    <top>
+        <HBox spacing="20" alignment="CENTER_LEFT" styleClass="top-bar">
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+            <Button fx:id="backButton" text="← Back"
+                    onAction="#onBackButtonClick"
+                    prefWidth="100"
+                    prefHeight="40"
+                    styleClass="back-button"/>
+            <Label fx:id="subjectNameLabel" text="Subject Name" styleClass="subject-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="analyzeButton" text="Analyze"
+                    onAction="#onAnalyzeButtonClick"
+                    prefWidth="150"
+                    prefHeight="40"
+                    styleClass="analyze-button"/>
+        </HBox>
+    </top>
+    <!-- Left Panel - Task List -->
+    <left>
+        <VBox fx:id="leftPanel" spacing="10" styleClass="left-panel" prefWidth="250">
+            <padding>
+                <Insets top="20" right="15" bottom="20" left="15"/>
+            </padding>
+            <Label text="Tasks" styleClass="panel-title"/>
+            <VBox fx:id="taskButtonsContainer" spacing="5" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </left>
+    <!-- Center - Task Results Display -->
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <!-- Default message when no task is selected -->
+            <VBox fx:id="defaultView" alignment="CENTER" spacing="20">
+                <Label text="Welcome to Analysis Dashboard" styleClass="default-title"/>
+                <Label text="Select a task from the left panel to view details" 
+                       styleClass="default-subtitle"/>
+                <Label text="Click 'Analyze' button to start the analysis process"
+                       styleClass="default-subtitle"/>
+            </VBox>
+        </StackPane>
+    </center>
+    <!-- Right Panel - Instance List -->
+    <right>
+        <VBox fx:id="rightPanel" spacing="10" styleClass="right-panel" prefWidth="280">
+            <padding>
+                <Insets top="20" right="15" bottom="20" left="15"/>
+            </padding>
+            <Label text="Instances" styleClass="panel-title"/>
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="instance-scroll">
+                <VBox fx:id="instanceListContainer" spacing="8"/>
+            </ScrollPane>
+        </VBox>
+    </right>
+</BorderPane>

@@ -1,0 +1,771 @@
+* {
+    /* Primary Colors - Blue */
+    -fx-primary-50: #ebf6fe;
+    -fx-primary-100: #d3ebfd;
+    -fx-primary-200: #a7d7fb;
+    -fx-primary-300: #7bc2fa;
+    -fx-primary-400: #4eaef8;
+    -fx-primary-500: #229af6;
+    -fx-primary-600: #0984e3;
+    -fx-primary-700: #0764ac;
+    -fx-primary-800: #044271;
+    -fx-primary-900: #02223b;
+    -fx-primary-950: #01111d;
+
+    /* Success Colors - Green */
+    -fx-success-50: #eafaf1;
+    -fx-success-100: #d5f6e3;
+    -fx-success-200: #b0edca;
+    -fx-success-300: #86e4ae;
+    -fx-success-400: #5ddb92;
+    -fx-success-500: #33d176;
+    -fx-success-600: #27ae60;
+    -fx-success-700: #1d8147;
+    -fx-success-800: #145730;
+    -fx-success-900: #092a17;
+    -fx-success-950: #05150b;
+
+    /* Error/Danger Colors - Red */
+    -fx-danger-50: #fdeeed;
+    -fx-danger-100: #fad9d6;
+    -fx-danger-200: #f5b8b2;
+    -fx-danger-300: #f09389;
+    -fx-danger-400: #ec7165;
+    -fx-danger-500: #e74c3c;
+    -fx-danger-600: #d12b1a;
+    -fx-danger-700: #9a2013;
+    -fx-danger-800: #68150d;
+    -fx-danger-900: #320a06;
+    -fx-danger-950: #1b0603;
+
+    /* Warning Colors - Orange */
+    -fx-warning-50: #fef5e7;
+    -fx-warning-100: #fdebce;
+    -fx-warning-200: #fad69e;
+    -fx-warning-300: #f8c472;
+    -fx-warning-400: #f5b042;
+    -fx-warning-500: #f39c12;
+    -fx-warning-600: #c77e0a;
+    -fx-warning-700: #965f08;
+    -fx-warning-800: #613d05;
+    -fx-warning-900: #311f02;
+    -fx-warning-950: #180f01;
+
+    /* Neutral Colors - Gray */
+    -fx-neutral-50: #f4f5f6;
+    -fx-neutral-100: #e9ebec;
+    -fx-neutral-200: #d3d7da;
+    -fx-neutral-300: #bdc3c7;
+    -fx-neutral-400: #9ea7ad;
+    -fx-neutral-500: #808c93;
+    -fx-neutral-600: #656f77;
+    -fx-neutral-700: #4d565b;
+    -fx-neutral-800: #34393d;
+    -fx-neutral-900: #1a1d1e;
+    -fx-neutral-950: #0c0d0e;
+}
+
+/* Main styling for the application */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-background-color: white;
+}
+
+/* BorderPane root styling for analysis view */
+BorderPane {
+    -fx-background-color: white;
+}
+
+/* Left panel styling */
+.left-panel {
+    -fx-background-color: -fx-neutral-50;
+    -fx-border-color: -fx-neutral-200;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* Analyze button styling */
+.analyze-button {
+    -fx-font-size: 14px;
+    -fx-background-color: -fx-primary-500;
+    -fx-text-fill: white;
+}
+
+.analyze-button:hover {
+    -fx-background-color: -fx-primary-600;
+}
+
+/* Back button styling */
+.back-button {
+    -fx-font-size: 14px;
+    -fx-background-color: -fx-neutral-600;
+    -fx-text-fill: white;
+}
+
+.back-button:hover {
+    -fx-background-color: -fx-neutral-700;
+}
+
+/* Button styling */
+.button {
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-opacity: 0.9;
+}
+
+.button:pressed {
+    -fx-opacity: 0.7;
+}
+
+/* Problem buttons container styling */
+.problem-buttons-container {
+    -fx-background-color: white;
+    -fx-border-color: -fx-neutral-200;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* Problem button styling */
+.problem-button {
+    -fx-background-color: -fx-neutral-100;
+    -fx-text-fill: -fx-neutral-800;
+    -fx-font-size: 13px;
+    -fx-padding: 8 16 8 16;
+}
+
+.problem-button:hover {
+    -fx-background-color: -fx-neutral-200;
+}
+
+.problem-button-selected {
+    -fx-background-color: -fx-success-600;
+    -fx-text-fill: white;
+}
+
+.problem-button-selected:hover {
+    -fx-background-color: -fx-success-700;
+}
+
+.problem-button:disabled {
+    -fx-opacity: 0.4;
+}
+
+/* Content area styling */
+.content-area {
+    -fx-background-color: white;
+}
+
+/* Chart styling */
+.chart {
+    -fx-background-color: white;
+}
+
+.chart-plot-background {
+    -fx-background-color: -fx-neutral-50;
+}
+
+
+/* Task result title styling */
+.task-result-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* Instance label styling */
+.instance-label {
+    -fx-background-color: -fx-neutral-100;
+    -fx-background-radius: 5;
+}
+
+/* Text area styling */
+.text-area {
+    -fx-background-color: -fx-neutral-50;
+    -fx-border-color: -fx-neutral-300;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.text-area .content {
+    -fx-background-color: -fx-neutral-50;
+}
+
+/* Home screen styling */
+.home-container {
+    -fx-background-color: white;
+}
+
+.home-title {
+    -fx-font-size: 72px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary-500;
+}
+
+.home-description {
+    -fx-font-size: 16px;
+    -fx-text-fill: -fx-neutral-700;
+    -fx-line-spacing: 4px;
+}
+
+.start-button {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-background-color: -fx-primary-500;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+.start-button:hover {
+    -fx-background-color: -fx-primary-600;
+}
+
+.start-button:pressed {
+    -fx-background-color: -fx-primary-700;
+}
+
+.start-button:disabled {
+    -fx-background-color: -fx-neutral-300;
+    -fx-opacity: 0.6;
+}
+
+/* Secondary button styling (for Cancel, etc.) */
+.secondary-button {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-background-color: -fx-neutral-200;
+    -fx-text-fill: -fx-neutral-800;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-border-color: -fx-neutral-300;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+}
+
+.secondary-button:hover {
+    -fx-background-color: -fx-neutral-300;
+    -fx-border-color: -fx-neutral-400;
+}
+
+.secondary-button:pressed {
+    -fx-background-color: -fx-neutral-400;
+}
+
+.secondary-button:disabled {
+    -fx-opacity: 0.5;
+}
+
+/* Danger button styling (for Delete, Remove, etc.) */
+.danger-button {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-background-color: -fx-danger-500;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-border-color: -fx-danger-600;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+}
+
+.danger-button:hover {
+    -fx-background-color: -fx-danger-600;
+    -fx-border-color: -fx-danger-700;
+}
+
+.danger-button:pressed {
+    -fx-background-color: -fx-danger-700;
+}
+
+.danger-button:disabled {
+    -fx-background-color: -fx-danger-200;
+    -fx-opacity: 0.6;
+}
+
+/* Selection screen styling */
+.selection-container {
+    -fx-background-color: white;
+}
+
+.selection-title {
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary-500;
+}
+
+.selection-instructions {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-neutral-700;
+    -fx-line-spacing: 2px;
+}
+
+.selection-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-neutral-800;
+}
+
+.subject-combo-box {
+    -fx-font-size: 14px;
+    -fx-background-radius: 6;
+    -fx-background-color: white;
+    -fx-border-color: -fx-neutral-300;
+    -fx-border-width: 1;
+    -fx-border-insets: 1;
+    -fx-border-radius: 6;
+}
+
+.subject-combo-box:focused {
+    -fx-border-color: -fx-primary-500;
+    -fx-border-width: 2;
+    -fx-border-insets: 0;
+}
+
+/* ComboBox dropdown list styling */
+.subject-combo-box .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: -fx-neutral-800;
+    -fx-padding: 8 12 8 12;
+}
+
+.subject-combo-box .list-cell:hover {
+    -fx-background-color: -fx-primary-100;
+}
+
+.subject-combo-box .list-cell:selected {
+    -fx-background-color: -fx-primary-500;
+    -fx-text-fill: white;
+}
+
+.subject-combo-box .list-view {
+    -fx-background-color: white;
+    -fx-background-radius: 6;
+    -fx-border-color: -fx-primary-500;
+    -fx-border-width: 2;
+    -fx-border-radius: 6;
+}
+
+/* ComboBox arrow button */
+.subject-combo-box .arrow-button {
+    -fx-background-color: -fx-primary-500;
+    -fx-background-radius: 0 4 4 0;
+}
+
+.subject-combo-box .arrow-button .arrow {
+    -fx-background-color: white;
+}
+
+.subject-combo-box:hover .arrow-button {
+    -fx-background-color: -fx-primary-600;
+}
+
+.description-area {
+    -fx-font-size: 13px;
+    -fx-background-color: white;
+    -fx-border-color: -fx-neutral-300;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.info-label {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary-600;
+}
+
+/* Analysis view styling */
+.top-bar {
+    -fx-background-color: -fx-neutral-50;
+    -fx-border-color: -fx-neutral-200;
+    -fx-border-width: 0 0 1 0;
+}
+
+.subject-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary-500;
+}
+
+.panel-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-neutral-800;
+    -fx-padding: 0 0 10 0;
+}
+
+.right-panel {
+    -fx-background-color: -fx-neutral-50;
+    -fx-border-color: -fx-neutral-200;
+    -fx-border-width: 0 0 0 1;
+}
+
+.task-button {
+    -fx-background-color: -fx-neutral-100;
+    -fx-text-fill: -fx-neutral-700;
+    -fx-font-size: 13px;
+    -fx-padding: 10 12 10 12;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.task-button:hover {
+    -fx-background-color: -fx-neutral-200;
+}
+
+.task-button-selected {
+    -fx-background-color: -fx-primary-500;
+    -fx-text-fill: white;
+}
+
+.task-button-selected:hover {
+    -fx-background-color: -fx-primary-600;
+}
+
+.task-button:disabled {
+    -fx-opacity: 0.5;
+}
+
+.instance-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: -fx-neutral-700;
+}
+
+.instance-scroll {
+    -fx-background-color: transparent;
+}
+
+.instance-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.default-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-neutral-800;
+}
+
+.default-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-neutral-600;
+}
+
+/* Add Subject Form Styling */
+.header-section {
+    -fx-background-color: white;
+    -fx-border-color: -fx-neutral-200;
+    -fx-border-width: 0 0 2 0;
+}
+
+.form-container {
+    -fx-background-color: white;
+}
+
+.form-scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.form-scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.form-section {
+    -fx-background-color: -fx-neutral-50;
+    -fx-background-radius: 8;
+    -fx-border-color: -fx-neutral-200;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-padding: 20;
+}
+
+.section-header {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-neutral-800;
+}
+
+.form-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: -fx-neutral-700;
+}
+
+.form-hint {
+    -fx-font-size: 12px;
+    -fx-text-fill: -fx-neutral-600;
+}
+
+.form-text-field {
+    -fx-font-size: 14px;
+    -fx-background-color: white;
+    -fx-border-color: -fx-neutral-300;
+    -fx-border-width: 1;
+    -fx-border-insets: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 8 12 8 12;
+}
+
+.form-text-field:focused {
+    -fx-border-color: -fx-primary-500;
+    -fx-border-width: 2;
+    -fx-border-insets: 0;
+}
+
+.form-text-area {
+    -fx-font-size: 14px;
+    -fx-background-color: white;
+    -fx-border-color: -fx-neutral-300;
+    -fx-border-width: 1;
+    -fx-border-insets: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.form-text-area:focused {
+    -fx-border-color: -fx-primary-500;
+    -fx-border-width: 2;
+    -fx-border-insets: 0;
+}
+
+.form-text-area .content {
+    -fx-background-color: white;
+}
+
+.checkbox-container {
+    -fx-background-color: white;
+    -fx-background-radius: 6;
+    -fx-border-color: -fx-neutral-200;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-padding: 10;
+}
+
+/* Styling for all checkboxes within checkbox-container */
+.checkbox-container .check-box {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-neutral-800;
+}
+
+.checkbox-container .check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: -fx-neutral-400;
+    -fx-border-width: 2;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+
+.checkbox-container .check-box:hover .box {
+    -fx-border-color: -fx-primary-500;
+}
+
+.checkbox-container .check-box:selected .box {
+    -fx-background-color: -fx-primary-500;
+    -fx-border-color: -fx-primary-500;
+}
+
+.checkbox-container .check-box:selected:hover .box {
+    -fx-background-color: -fx-primary-600;
+    -fx-border-color: -fx-primary-600;
+}
+
+.checkbox-container .check-box .mark {
+    -fx-background-color: white;
+}
+
+.checkbox-container .check-box:indeterminate .mark {
+    -fx-background-color: white;
+}
+
+/* Additional styling for platform-checkbox class if used */
+.platform-checkbox {
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-neutral-800;
+}
+
+/* CheckBox box styling */
+.platform-checkbox .box {
+    -fx-background-color: white;
+    -fx-border-color: -fx-neutral-400;
+    -fx-border-width: 2;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+
+.platform-checkbox:hover .box {
+    -fx-border-color: -fx-primary-500;
+}
+
+.platform-checkbox:selected .box {
+    -fx-background-color: -fx-primary-500;
+    -fx-border-color: -fx-primary-500;
+}
+
+.platform-checkbox:selected:hover .box {
+    -fx-background-color: -fx-primary-600;
+    -fx-border-color: -fx-primary-600;
+}
+
+/* CheckBox checkmark */
+.platform-checkbox .mark {
+    -fx-background-color: white;
+}
+
+.platform-checkbox:indeterminate .mark {
+    -fx-background-color: white;
+}
+
+.form-spinner {
+    -fx-background-color: white;
+    -fx-border-color: -fx-neutral-300;
+    -fx-border-width: 1;
+    -fx-border-insets: 1;
+    -fx-border-radius: 6;
+}
+
+.form-spinner:focused {
+    -fx-border-color: -fx-primary-500;
+    -fx-border-width: 2;
+    -fx-border-insets: 0;
+}
+
+.form-spinner .text-field {
+    -fx-font-size: 14px;
+    -fx-background-color: white;
+    -fx-text-fill: -fx-neutral-800;
+}
+
+/* Spinner increment button */
+.form-spinner .increment-arrow-button {
+    -fx-background-color: -fx-primary-500;
+    -fx-background-radius: 0 6 0 0;
+}
+
+.form-spinner .increment-arrow-button:hover {
+    -fx-background-color: -fx-primary-600;
+}
+
+.form-spinner .increment-arrow-button:pressed {
+    -fx-background-color: -fx-primary-700;
+}
+
+.form-spinner .increment-arrow-button .increment-arrow {
+    -fx-background-color: white;
+}
+
+/* Spinner decrement button */
+.form-spinner .decrement-arrow-button {
+    -fx-background-color: -fx-primary-500;
+    -fx-background-radius: 0 0 6 0;
+}
+
+.form-spinner .decrement-arrow-button:hover {
+    -fx-background-color: -fx-primary-600;
+}
+
+.form-spinner .decrement-arrow-button:pressed {
+    -fx-background-color: -fx-primary-700;
+}
+
+.form-spinner .decrement-arrow-button .decrement-arrow {
+    -fx-background-color: white;
+}
+
+.scraping-progress-bar {
+    -fx-accent: -fx-primary-500;
+}
+
+.scraping-progress-bar .track {
+    -fx-background-color: -fx-neutral-200;
+    -fx-background-radius: 4;
+}
+
+.scraping-progress-bar .bar {
+    -fx-background-color: linear-gradient(to right, -fx-primary-500, -fx-primary-400);
+    -fx-background-radius: 4;
+    -fx-background-insets: 0;
+}
+
+.scraping-progress-bar:indeterminate .bar {
+    -fx-background-color: linear-gradient(to right, -fx-primary-500, -fx-success-500, -fx-primary-500);
+}
+
+.progress-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: -fx-neutral-800;
+}
+
+.progress-log-area {
+    -fx-font-family: "Consolas", "Monaco", "Courier New", monospace;
+    -fx-font-size: 14px;
+    -fx-background-color: -fx-neutral-50;
+    -fx-text-fill: -fx-neutral-900;
+    -fx-border-color: -fx-neutral-300;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.progress-log-area .content {
+    -fx-background-color: -fx-neutral-50;
+}
+
+.button-bar {
+    -fx-background-color: -fx-neutral-50;
+    -fx-border-color: -fx-neutral-200;
+    -fx-border-width: 2 0 0 0;
+}
+
+/* Alert Dialog Button Styling */
+/* Danger alert button (for destructive actions like YES, OK in delete/error confirmations) */
+.alert-button-danger {
+    -fx-background-color: -fx-danger-500;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+
+.alert-button-danger:hover {
+    -fx-background-color: -fx-danger-600;
+}
+
+.alert-button-danger:pressed {
+    -fx-background-color: -fx-danger-700;
+}
+
+/* Secondary alert button (for NO, CANCEL buttons) */
+.alert-button-secondary {
+    -fx-background-color: -fx-neutral-200;
+    -fx-text-fill: -fx-neutral-800;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4;
+    -fx-border-color: -fx-neutral-300;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+}
+
+.alert-button-secondary:hover {
+    -fx-background-color: -fx-neutral-300;
+    -fx-border-color: -fx-neutral-400;
+}
+
+.alert-button-secondary:pressed {
+    -fx-background-color: -fx-neutral-400;
+}
+
+/* Primary alert button (for OK in success/info confirmations) */
+.alert-button-primary {
+    -fx-background-color: -fx-primary-500;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+
+.alert-button-primary:hover {
+    -fx-background-color: -fx-primary-600;
+}
+
+.alert-button-primary:pressed {
+    -fx-background-color: -fx-primary-700;
+}
